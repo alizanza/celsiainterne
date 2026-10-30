@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sitio web informativo independiente sobre internet, conectividad y tecnologías digitales.">
+  <title>Guía de Internet | Información y conectividad</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #203047;
+      background: #f4f7fb;
+    }
+    header {
+      background: #102b50;
+      color: white;
+      padding: 22px 8%;
+      font-size: 22px;
+      font-weight: bold;
+    }
+    .hero {
+      background: linear-gradient(120deg,#102b50,#1976ad);
+      color: white;
+      text-align: center;
+      padding: 75px 20px;
+    }
+    .hero h1 { font-size: 36px; }
+    .hero p {
+      max-width: 650px;
+      margin: auto;
+      line-height: 1.7;
+    }
+    main {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+      gap: 20px;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 3px 15px #0000000c;
+    }
+    .card h2 { color: #1766a5; font-size: 20px; }
+    .info {
+      background: white;
+      margin-top: 25px;
+      padding: 25px;
+      border-radius: 12px;
+      line-height: 1.7;
+    }
+    footer {
+      background: #102b50;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+    footer a { color: white; }
+    @media(max-width:600px) {
+      .hero h1 { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>🌐 Guía de Internet</header>
+
+<section class="hero">
+  <h1>Conoce más sobre el mundo de Internet</h1>
+  <p>
+    Un espacio informativo donde encontrarás contenidos
+    sobre conectividad, tecnologías digitales y servicios
+    de internet para el hogar.
+  </p>
+</section>
+
+<main>
+  <section class="grid">
+    <article class="card">
+      <h2>🌐 Internet para el hogar</h2>
+      <p>Información general sobre las diferentes tecnologías de conexión disponibles.</p>
+    </article>
+
+    <article class="card">
+      <h2>⚡ Fibra óptica</h2>
+      <p>Conoce cómo funciona esta tecnología y cuáles son sus características.</p>
+    </article>
+
+    <article class="card">
+      <h2>📡 Conectividad</h2>
+      <p>Aprende sobre las alternativas de conexión y cobertura de internet.</p>
+    </article>
+  </section>
+
+  <section class="info">
+    <h2>Sobre este sitio web</h2>
+    <p>
+      Somos un sitio web informativo independiente dedicado
+      a compartir información general sobre internet,
+      conectividad y tecnologías digitales.
+    </p>
+    <p>
+      No somos proveedores de servicios de internet ni
+      representamos a operadores de telecomunicaciones,
+      salvo que se indique expresamente.
+    </p>
+    <h3>Contacto</h3>
+    <p>
+      Para consultas relacionadas con el contenido de este sitio,
+      puedes utilizar nuestro formulario de contacto.
+    </p>
+    <p><a href="/contacto.html">Ir al formulario de contacto</a></p>
+  </section>
+</main>
+
+<footer>
+  <strong>Guía de Internet</strong>
+  <p>Sitio web informativo independiente.</p>
+  <a href="privacidad.html">Política de privacidad</a> |
+  <a href="terminos.html">Términos y condiciones</a>
+  <p>© 2026 Guía de Internet. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+async function detectarPais() {
+  try {
+    const respuesta = await fetch("https://ipapi.co/json/");
+    if (!respuesta.ok) throw new Error("Error de geolocalización");
+
+    const datos = await respuesta.json();
+
+    if (datos.country_code === "US") {
+      window.location.replace("ingles.html");
+    }
+  } catch (error) {
+    console.log("No se pudo detectar el país. Se mantiene español.");
+  }
+}
+
+detectarPais();
+</script>
+
+</body>
+</html>
